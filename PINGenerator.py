@@ -6,11 +6,16 @@ def getLenPIN():
     return len
 
 def generatePIN():
-    pin = ""
-    for i in range(getLenPIN()):
+    frontpin = ''
+    endpin=''
+    len = getLenPIN()
+    for i in range(len//2):
         temp = random.SystemRandom().randint(0,9)
-        pin += str(temp)
+        endpin += str(temp)
+    for j in range(len-(len//2)):
+        temp1 = random.SystemRandom().randint(0, 9)
+        frontpin = str(temp1) + str(frontpin)
     print("PIN : ")
-    return pin;
+    return str(frontpin)+ str(endpin);
 
 print(generatePIN());
